@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Gender Reveal </title>
+  <title>Baby Shower Gender Reveal - Ralph or Lauren</title>
 
   <!-- Google Fonts de Lujo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
 
     body {
       font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-      background-color: #F5EFE6;
+      background-color: #FFFFFF;
       color: #2D2825;
       margin: 0;
       padding: 16px 8px 60px 8px;
@@ -259,39 +259,16 @@
        No se escala el diseño completo: cada pieza conserva
        su proporción y se coloca dentro del ancho disponible.
        ========================================================= */
-    html {
+    html, body {
       width: 100%;
       max-width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      overscroll-behavior-x: none;
-      overscroll-behavior-y: auto;
-    }
-
-    html body {
-      width: 100%;
-      max-width: 100%;
-      min-height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
       -webkit-text-size-adjust: 100%;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-x: none;
-      overscroll-behavior-y: auto;
-      touch-action: pan-y;
     }
 
     img, svg {
       max-width: 100%;
-    }
-
-    /* Safari/iPhone: no interceptamos touchmove. El gesto queda libre para
-       que Safari y el contenedor de Google Sites puedan hacer scroll nativo. */
-    @supports (-webkit-touch-callout: none) {
-      html, body {
-        overscroll-behavior-x: none;
-      }
     }
 
     @media (max-width: 768px) {
@@ -694,7 +671,7 @@
       }
 
       #revealedSonogram svg {
-        transform: none !important;
+        transform: scaleY(.82) !important;
         transform-origin: top center !important;
       }
 
@@ -743,7 +720,7 @@
       #revealedArchCard {
         /* El arco queda apenas por encima del borde inferior del sobre. */
         margin-top: -42px !important;
-        aspect-ratio: 1080 / 1460 !important;
+        aspect-ratio: 1080 / 1535 !important;
       }
 
       #revealedArchCard > img {
@@ -767,7 +744,7 @@
       }
 
       #revealedSonogram svg {
-        transform: none !important;
+        transform: scaleY(.80) !important;
       }
 
        #revealedArchCard {
@@ -870,1057 +847,102 @@
       }
     }
 
-  
 
     /* =========================================================
-       CANVA — COMPOSICIÓN DEL ARCO EN UN SOLO SISTEMA DE COORDENADAS
-       Marco + texto + fecha + dirección deben escalar y desplazarse
-       juntos. No se usa scaleY ni otra proporción para el marco.
+       SAFARI / iPHONE — SCROLL NATIVO PURO
+       No creamos un segundo scroll ni intervenimos en los gestos.
+       El documento deja que iOS/Google Sites gestione el desplazamiento.
        ========================================================= */
-    #revealedArchCard {
-      position: relative !important;
-      box-sizing: border-box !important;
-      width: min(96vw, 660px) !important;
-      max-width: 660px !important;
-      aspect-ratio: 1080 / 1460 !important;
-      overflow: visible !important;
-      z-index: 10 !important;
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-y: visible;
+      -webkit-text-size-adjust: 100%;
     }
 
-    #revealedArchCard > img {
-      position: absolute !important;
-      inset: 0 !important;
-      display: block !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none !important;
-      object-fit: fill !important;
-      transform: none !important;
-      transform-origin: center center !important;
-      margin: 0 !important;
-    }
-
-    /* Este overlay ocupa exactamente el mismo rectángulo que la imagen. */
-    #revealedArchCard > div {
-      position: absolute !important;
-      inset: 0 !important;
-      box-sizing: border-box !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      padding: 6% 14% 10% !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      overflow: visible !important;
-      transform: none !important;
-    }
-
-    /* Primer bloque: IS HE A / BOY / OR IS SHE A / GIRL */
-    #revealedArchCard > div > div:first-child {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 24px 0 0 !important;
-      padding: 0 !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #revealedArchCard > div > div:first-child h3,
-    #revealedArchCard > div > div:first-child h1 {
-      transform: none !important;
-    }
-
-    /* Gender Reveal / Xol & Lenin */
-    #revealedArchCard > div > div:nth-child(2) {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 380px !important;
-      margin: 50px 0 10px !important;
-      padding: 0 !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    /* Fecha */
-    #revealedArchCard > div > div:nth-child(3) {
-      position: relative !important;
-      box-sizing: border-box !important;
-      transform: none !important;
-    }
-
-    /* Dirección */
-    #revealedArchCard > div > p {
-      position: relative !important;
-      transform: none !important;
-    }
-
-    /* Las animaciones de aparición solo afectan a la letra durante su
-       entrada; no alteran el sistema de coordenadas del arco. */
-    #revealedArchCard .letter-reveal {
-      transform: translateY(12px) scale(.96);
-    }
-
-    @media (max-width: 768px) {
-      #revealedArchCard {
-        width: min(96vw, 660px) !important;
-        max-width: 660px !important;
-        aspect-ratio: 1080 / 1460 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-
-      #revealedArchCard > div {
-        padding: 6% 12% 9% !important;
-      }
-
-      #revealedArchCard > div > div:first-child {
-        margin-top: 24px !important;
-        transform: none !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        margin-top: 42px !important;
-        transform: none !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(3),
-      #revealedArchCard > div > p {
-        transform: none !important;
-      }
-    }
-
-    @media (max-width: 380px) {
-      #revealedArchCard {
-        width: 96vw !important;
-        max-width: 660px !important;
-        aspect-ratio: 1080 / 1460 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-
-      #revealedArchCard > div {
-        padding-left: 10% !important;
-        padding-right: 10% !important;
-      }
-
-      #revealedArchCard > div > div:first-child {
-        margin-top: 20px !important;
-        transform: none !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        margin-top: 38px !important;
-        transform: none !important;
-      }
-    }
-
-
-    /* =========================================================
-       CANVA — VERSIÓN LIMPIA DEFINITIVA DEL ARCO
-       Una sola caja de coordenadas: marco + textos + fecha.
-       No se deforma el marco con scaleY y no se mueve el texto
-       con translateY. Los espacios se controlan únicamente con
-       márgenes y padding.
-       ========================================================= */
     body {
-      background-color: #F5EFE6 !important;
+      width: 100%;
+      max-width: 100%;
+      min-height: 0;
+      height: auto;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: auto;
+      -webkit-text-size-adjust: 100%;
     }
 
-    #revealedArchCard {
+    .app-wrap {
+      width: 100%;
+      max-width: 660px;
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+
+    #revealedView {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+      padding-bottom: 90px !important;
+    }
+
+    #revealedView > div:first-child {
       position: relative !important;
-      width: min(96vw, 660px) !important;
-      max-width: 660px !important;
-      aspect-ratio: 1080 / 1460 !important;
-      height: auto !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      overflow: visible !important;
-      box-sizing: border-box !important;
-      z-index: 10 !important;
-    }
-
-    #revealedArchCard > img {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none !important;
-      display: block !important;
-      object-fit: fill !important;
-      transform: none !important;
-      transform-origin: center center !important;
-      margin: 0 !important;
-    }
-
-    #revealedArchCard > div {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      padding: 7% 13% 9% !important;
-      margin: 0 !important;
       display: flex !important;
       flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-      text-align: center !important;
-      box-sizing: border-box !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
       overflow: visible !important;
-      transform: none !important;
     }
 
-    /* ===== BLOQUE SUPERIOR ===== */
-    #revealedArchCard .arch-top-text,
-    #revealedArchCard > div > div:first-child {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 7% 0 0 !important;
-      padding: 0 !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #revealedArchCard .arch-top-text h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(8px, 1.65vw, 11px) !important;
-      line-height: 1 !important;
-      letter-spacing: 2.5px !important;
-      font-weight: 600 !important;
-      margin: 0 0 7px !important;
-      transform: none !important;
-    }
-
-    #revealedArchCard .arch-top-text h1 {
-      font-family: 'Alex Brush', cursive !important;
-      font-size: clamp(29px, 5.8vw, 38px) !important;
-      line-height: .9 !important;
-      font-weight: 400 !important;
-      margin: 0 0 15px !important;
-      transform: none !important;
-    }
-
-    #revealedArchCard .arch-top-text h3:nth-of-type(2) {
-      margin-top: 0 !important;
-      margin-bottom: 7px !important;
-    }
-
-    #revealedArchCard .arch-top-text h1:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    /* ===== GENDER REVEAL ===== */
-    #revealedArchCard > div > div:nth-child(2) {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 380px !important;
-      margin: 10% 0 3% !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      transform: none !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p {
-      transform: none !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:first-child {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(9px, 1.9vw, 13px) !important;
-      color: #666 !important;
-      line-height: 1.1 !important;
-      margin: 0 !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(2) {
-      font-family: 'Alex Brush', cursive !important;
-      font-size: clamp(25px, 5.2vw, 34px) !important;
-      line-height: 1 !important;
-      margin: 2px 0 4px !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(3) {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(8px, 1.8vw, 12px) !important;
-      color: #777 !important;
-      line-height: 1.1 !important;
-      margin: 0 !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-      font-family: 'Alex Brush', cursive !important;
-      font-size: clamp(24px, 4.9vw, 32px) !important;
-      line-height: 1 !important;
-      margin: 2px 0 0 !important;
-    }
-
-    /* ===== FECHA ===== */
-    #revealedArchCard > div > div:nth-child(3) {
-      position: relative !important;
-      width: min(68%, 220px) !important;
-      max-width: 220px !important;
-      margin: 3% auto 2% !important;
-      padding: 6px 2px !important;
-      box-sizing: border-box !important;
-      transform: none !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(3) span:first-child,
-    #revealedArchCard > div > div:nth-child(3) span:last-child {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(7px, 1.7vw, 12px) !important;
-      white-space: nowrap !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(3) span:nth-child(2) {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(21px, 4.4vw, 30px) !important;
-      line-height: 1 !important;
-      padding: 0 5px !important;
-    }
-
-    /* ===== DIRECCIÓN ===== */
-    #revealedArchCard > div > p {
-      position: relative !important;
-      transform: none !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      line-height: 1.1 !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(1) {
-      margin-top: 1% !important;
-      margin-bottom: 3px !important;
-      font-size: clamp(8px, 1.8vw, 12px) !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(2) {
-      margin: 2px 0 !important;
-      font-size: clamp(9px, 2vw, 13.5px) !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(3) {
-      font-size: clamp(8px, 1.7vw, 11.5px) !important;
-    }
-
-    /* Las animaciones no deben alterar la posición final del contenido. */
-    #revealedArchCard .letter-reveal {
-      transform: none !important;
-      filter: none !important;
-      animation-name: none !important;
-      opacity: 1 !important;
-    }
-
-    @media (max-width: 768px) {
-      #revealedArchCard {
-        width: min(96vw, 660px) !important;
-        max-width: 660px !important;
-        aspect-ratio: 1080 / 1460 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-
-      #revealedArchCard > div {
-        padding: 6% 11% 8% !important;
-      }
-
-      #revealedArchCard .arch-top-text,
-      #revealedArchCard > div > div:first-child {
-        margin-top: 6% !important;
-      }
-
-      #revealedArchCard .arch-top-text h3 {
-        font-size: clamp(7px, 2.5vw, 10px) !important;
-        letter-spacing: 1.7px !important;
-        margin-bottom: 6px !important;
-      }
-
-      #revealedArchCard .arch-top-text h1 {
-        font-size: clamp(27px, 8vw, 38px) !important;
-        margin-bottom: 13px !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        margin-top: 9% !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) p:nth-child(2) {
-        font-size: clamp(24px, 7.2vw, 34px) !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-        font-size: clamp(23px, 6.8vw, 32px) !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(3) {
-        width: 62% !important;
-        max-width: 190px !important;
-        margin-top: 4% !important;
-      }
-    }
-
-    @media (max-width: 380px) {
-      #revealedArchCard {
-        width: 96vw !important;
-        aspect-ratio: 1080 / 1460 !important;
-      }
-
-      #revealedArchCard > div {
-        padding-left: 10% !important;
-        padding-right: 10% !important;
-      }
-
-      #revealedArchCard .arch-top-text h1 {
-        font-size: 27px !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        margin-top: 8% !important;
-      }
-    }
-
-
-    /* =========================================================
-       CANVA FINAL — TEXTO ESTABLE Y CENTRADO
-       El arco y todos sus textos comparten la misma caja.
-       No se usan animaciones por letra ni desplazamientos.
-       ========================================================= */
     #revealedArchCard {
       position: relative !important;
-      width: min(96vw, 660px) !important;
-      max-width: 660px !important;
-      aspect-ratio: 1080 / 1460 !important;
       height: auto !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      overflow: visible !important;
-      box-sizing: border-box !important;
-      container-type: inline-size;
+      transform: none !important;
+      margin-bottom: 24px !important;
     }
 
     #revealedArchCard > img {
-      position: absolute !important;
-      inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      max-width: none !important;
-      object-fit: fill !important;
-      display: block !important;
-      transform: none !important;
-      margin: 0 !important;
-    }
-
-    #revealedArchCard > div {
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      display: block !important;
-      text-align: center !important;
-      box-sizing: border-box !important;
       transform: none !important;
     }
 
-    /* Cada bloque ocupa su propia línea completa. */
-    #revealedArchCard .arch-top-text {
-      position: absolute !important;
-      top: 8.5% !important;
-      left: 12% !important;
-      width: 76% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      text-align: center !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #revealedArchCard .arch-top-text h3,
-    #revealedArchCard .arch-top-text h1 {
-      display: block !important;
-      width: 100% !important;
-      text-align: center !important;
+    #revealedView > div:first-child + div,
+    #revealedView > div:first-child + div ~ *,
+    #revealedView .card-white {
       position: relative !important;
-      left: 0 !important;
-      right: 0 !important;
-      transform: none !important;
-      box-sizing: border-box !important;
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
     }
 
-    #revealedArchCard .arch-top-text h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      font-size: clamp(8px, 1.7vw, 11px) !important;
-      line-height: 1 !important;
-      letter-spacing: 2.2px !important;
-      font-weight: 600 !important;
-      margin: 0 0 7px !important;
-      color: #1c3558 !important;
+    #revealedView > div:first-child + div {
+      display: grid !important;
+      width: 100% !important;
+      margin-top: 14px !important;
+      margin-bottom: 24px !important;
     }
 
-    #revealedArchCard .arch-top-text h3:nth-of-type(2) {
-      color: #d66283 !important;
-      margin: 7px 0 5px !important;
+    #revealedView::after {
+      content: none !important;
+      display: none !important;
     }
 
-    #revealedArchCard .arch-top-text h1 {
-      font-family: 'Alex Brush', cursive !important;
-      font-size: clamp(29px, 5.8vw, 38px) !important;
-      line-height: .9 !important;
-      font-weight: 400 !important;
-      margin: 0 !important;
-    }
-
-    #revealedArchCard .arch-top-text h1:last-child {
-      color: #d66283 !important;
-    }
-
-    /* Segundo bloque: posición fija dentro del arco, independiente del primero. */
-    #revealedArchCard > div > div:nth-child(2) {
-      position: absolute !important;
-      top: 42% !important;
-      left: 12% !important;
-      width: 76% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      text-align: center !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p {
+    .safari-final-spacer {
       display: block !important;
       width: 100% !important;
-      text-align: center !important;
-      transform: none !important;
-      position: relative !important;
-      left: 0 !important;
-      right: 0 !important;
+      height: 100px !important;
+      min-height: 100px !important;
+      flex: none !important;
     }
 
-    #revealedArchCard > div > div:nth-child(2) p:first-child {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      color: #666 !important;
-      font-size: clamp(9px, 1.9vw, 13px) !important;
-      line-height: 1.1 !important;
-      margin: 0 0 2px !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(2) {
-      font-family: 'Alex Brush', cursive !important;
-      color: #222 !important;
-      font-size: clamp(25px, 5.2vw, 34px) !important;
-      line-height: 1 !important;
-      margin: 0 0 4px !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(3) {
-      font-family: 'Cormorant Garamond', Georgia, serif !important;
-      color: #777 !important;
-      font-size: clamp(8px, 1.8vw, 12px) !important;
-      line-height: 1.1 !important;
-      margin: 0 0 2px !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-      font-family: 'Alex Brush', cursive !important;
-      color: #1c3558 !important;
-      font-size: clamp(24px, 4.9vw, 32px) !important;
-      line-height: 1 !important;
-      margin: 0 !important;
-    }
-
-    /* Fecha */
-    #revealedArchCard > div > div:nth-child(3) {
-      position: absolute !important;
-      top: 69% !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 62% !important;
-      max-width: 220px !important;
-      margin: 0 !important;
-      padding: 6px 2px !important;
-      box-sizing: border-box !important;
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(3) span {
-      position: static !important;
-      transform: none !important;
-      white-space: nowrap !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(1) {
-      position: absolute !important;
-      top: 76% !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 80% !important;
-      margin: 0 !important;
-      text-align: center !important;
-      font-size: clamp(8px, 1.8vw, 12px) !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(2) {
-      position: absolute !important;
-      top: 79% !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 80% !important;
-      margin: 0 !important;
-      text-align: center !important;
-      font-size: clamp(9px, 2vw, 13.5px) !important;
-    }
-
-    #revealedArchCard > div > p:nth-of-type(3) {
-      position: absolute !important;
-      top: 82% !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 80% !important;
-      margin: 0 !important;
-      text-align: center !important;
-      font-size: clamp(8px, 1.7vw, 11.5px) !important;
-    }
-
-    /* Desactivamos por completo el efecto letra-por-letra. */
-    #revealedArchCard .letter-reveal {
-      display: inline !important;
-      opacity: 1 !important;
-      transform: none !important;
-      filter: none !important;
-      animation: none !important;
-    }
-
-    @media (max-width: 768px) {
-      #revealedArchCard {
-        width: 96vw !important;
-        max-width: 660px !important;
-        aspect-ratio: 1080 / 1460 !important;
-      }
-
-      #revealedArchCard .arch-top-text {
-        top: 8.5% !important;
-        left: 10% !important;
-        width: 80% !important;
-      }
-
-      #revealedArchCard .arch-top-text h3 {
-        font-size: clamp(7px, 2.4vw, 10px) !important;
-        letter-spacing: 1.5px !important;
-        margin-bottom: 5px !important;
-      }
-
-      #revealedArchCard .arch-top-text h3:nth-of-type(2) {
-        margin-top: 6px !important;
-      }
-
-      #revealedArchCard .arch-top-text h1 {
-        font-size: clamp(27px, 8vw, 38px) !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        top: 43% !important;
-        left: 10% !important;
-        width: 80% !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) p:nth-child(2) {
-        font-size: clamp(24px, 7.2vw, 34px) !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-        font-size: clamp(23px, 6.8vw, 32px) !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(3) {
-        top: 69% !important;
-        width: 62% !important;
-      }
-
-      #revealedArchCard > div > p:nth-of-type(1) { top: 76% !important; }
-      #revealedArchCard > div > p:nth-of-type(2) { top: 79% !important; }
-      #revealedArchCard > div > p:nth-of-type(3) { top: 82% !important; }
-    }
-
-    @media (max-width: 380px) {
-      #revealedArchCard {
-        width: 96vw !important;
-      }
-      #revealedArchCard .arch-top-text h1 { font-size: 27px !important; }
-      #revealedArchCard > div > div:nth-child(2) { top: 43% !important; }
-    }
-
-
-    /* =========================================================
-       AJUSTE FINAL — EJE DE TEXTO ALINEADO CON XOL & LENIN
-       BOY / GIRL siguen el mismo eje visual que el nombre.
-       Se corrige la asimetría visual de Alex Brush sin mover
-       el marco ni cambiar su proporción.
-       ========================================================= */
-    #revealedArchCard .arch-top-text {
-      left: 8% !important;
-      width: 76% !important;
-      text-align: center !important;
-    }
-
-    #revealedArchCard .arch-top-text h3,
-    #revealedArchCard .arch-top-text h1 {
-      width: 100% !important;
-      text-align: center !important;
-    }
-
-    /* Alex Brush tiene un peso visual hacia la derecha en BOY/GIRL.
-       Este pequeño ajuste hace coincidir su eje óptico con Xol & Lenin. */
-    #revealedArchCard .arch-top-text h1 {
-      left: -4% !important;
-      width: 108% !important;
-    }
-
-    #revealedArchCard .arch-top-text h3 {
-      left: -1% !important;
-      width: 102% !important;
-    }
-
-    @media (max-width: 768px) {
-      #revealedArchCard .arch-top-text {
-        left: 6% !important;
-        width: 80% !important;
-      }
-
-      #revealedArchCard .arch-top-text h1 {
-        left: -5% !important;
-        width: 110% !important;
-      }
-
-      #revealedArchCard .arch-top-text h3 {
-        left: -1% !important;
-        width: 102% !important;
-      }
-    }
-
-    @media (max-width: 380px) {
-      #revealedArchCard .arch-top-text {
-        left: 5% !important;
-        width: 82% !important;
-      }
-
-      #revealedArchCard .arch-top-text h1 {
-        left: -5% !important;
-        width: 110% !important;
-      }
-    }
-
-  
-    /* =========================================================
-       V2 — MISMO EJE REAL PARA TODO EL TEXTO DEL ARCO
-       El problema era que .arch-top-text quedaba al 8% y el
-       bloque Gender Reveal al 12%, mientras BOY/GIRL tenían
-       anchos mayores. Eso desplazaba su centro óptico.
-       Ahora TODOS usan la misma columna 12% -> 88%.
-       ========================================================= */
-    #revealedArchCard .arch-top-text {
-      position: absolute !important;
-      top: 8.5% !important;
-      left: 12% !important;
-      width: 76% !important;
-      max-width: none !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      text-align: center !important;
-      transform: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #revealedArchCard .arch-top-text h3,
-    #revealedArchCard .arch-top-text h1 {
-      position: static !important;
-      display: block !important;
-      width: 100% !important;
-      max-width: none !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      text-align: center !important;
-      transform: none !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) {
-      left: 12% !important;
-      width: 76% !important;
-      max-width: none !important;
-      box-sizing: border-box !important;
-      text-align: center !important;
-    }
-
-    #revealedArchCard > div > div:nth-child(2) p {
-      width: 100% !important;
-      max-width: none !important;
-      text-align: center !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      box-sizing: border-box !important;
-    }
-
-    /* Mantener exactamente el mismo eje en móvil. */
-    @media (max-width: 768px) {
-      #revealedArchCard .arch-top-text {
-        left: 12% !important;
-        width: 76% !important;
-        top: 8.5% !important;
-      }
-
-      #revealedArchCard .arch-top-text h3,
-      #revealedArchCard .arch-top-text h1 {
-        width: 100% !important;
-        left: auto !important;
-        right: auto !important;
-      }
-
-      #revealedArchCard > div > div:nth-child(2) {
-        left: 12% !important;
-        width: 76% !important;
-      }
-    }
-
-    @media (max-width: 380px) {
-      #revealedArchCard .arch-top-text {
-        left: 12% !important;
-        width: 76% !important;
-      }
-    }
-
-
-/* =========================================================
-   CORRECCIÓN DEFINITIVA — UN SOLO EJE HORIZONTAL
-   El problema era la combinación de position:absolute,
-   position:relative + left:12% y flex. Eso podía sumar
-   desplazamientos diferentes entre BOY/GIRL y Gender Reveal.
-   Aquí todos los bloques pertenecen a la misma cuadrícula.
-   ========================================================= */
-#revealedArchCard > div {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  box-sizing: border-box !important;
-  padding: 7% 0 8% !important;
-  margin: 0 !important;
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  grid-auto-rows: max-content !important;
-  justify-items: center !important;
-  align-content: start !important;
-  text-align: center !important;
-  overflow: visible !important;
-  transform: none !important;
-}
-
-/* MISMA COLUMNA EXACTA PARA LOS DOS BLOQUES */
-#revealedArchCard .arch-top-text,
-#revealedArchCard > div > div:nth-child(2) {
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  width: 76% !important;
-  max-width: 380px !important;
-  min-width: 0 !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 !important;
-  text-align: center !important;
-  transform: none !important;
-  box-sizing: border-box !important;
-}
-
-#revealedArchCard .arch-top-text {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* Separación vertical controlada, sin desplazar horizontalmente nada. */
-#revealedArchCard > div > div:nth-child(2) {
-  margin-top: 9% !important;
-  margin-bottom: 2% !important;
-}
-
-/* Cada línea ocupa el mismo ancho real. */
-#revealedArchCard .arch-top-text h3,
-#revealedArchCard .arch-top-text h1,
-#revealedArchCard > div > div:nth-child(2) p {
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: center !important;
-  transform: none !important;
-  box-sizing: border-box !important;
-}
-
-/* Quitamos cualquier corrección óptica anterior que pudiera dejar
-   BOY/GIRL a la derecha. */
-#revealedArchCard .arch-top-text h1 {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  left: auto !important;
-}
-#revealedArchCard .arch-top-text h3 {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  left: auto !important;
-}
-
-/* También el nombre usa exactamente la misma columna. */
-#revealedArchCard > div > div:nth-child(2) p:nth-child(2),
-#revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-  width: 100% !important;
-  max-width: none !important;
-  text-align: center !important;
-}
-
-/* Fecha y dirección permanecen en el flujo de la misma cuadrícula. */
-#revealedArchCard > div > div:nth-child(3) {
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  transform: none !important;
-}
-
-#revealedArchCard > div > p {
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  transform: none !important;
-  text-align: center !important;
-}
-
-/* Elimina de forma definitiva la animación por letra dentro del arco. */
-#revealedArchCard .letter-reveal {
-  display: inline !important;
-  opacity: 1 !important;
-  animation: none !important;
-  transform: none !important;
-  filter: none !important;
-}
-
-@media (max-width: 768px) {
-  #revealedArchCard > div {
-    padding: 8% 0 8% !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    justify-items: center !important;
-    align-content: start !important;
-  }
-
-  #revealedArchCard .arch-top-text,
-  #revealedArchCard > div > div:nth-child(2) {
-    position: static !important;
-    left: auto !important;
-    width: 76% !important;
-    max-width: 380px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    transform: none !important;
-  }
-
-  #revealedArchCard .arch-top-text {
-    margin-top: 0 !important;
-  }
-
-  #revealedArchCard > div > div:nth-child(2) {
-    margin-top: 9% !important;
-  }
-
-  #revealedArchCard .arch-top-text h1 {
-    font-size: clamp(28px, 7.8vw, 38px) !important;
-    line-height: .95 !important;
-  }
-
-  #revealedArchCard > div > div:nth-child(2) p:nth-child(2) {
-    font-size: clamp(24px, 7.1vw, 34px) !important;
-  }
-
-  #revealedArchCard > div > div:nth-child(2) p:nth-child(4) {
-    font-size: clamp(23px, 6.8vw, 32px) !important;
-  }
-}
-
-@media (max-width: 380px) {
-  #revealedArchCard > div {
-    padding: 9% 0 8% !important;
-  }
-
-  #revealedArchCard .arch-top-text,
-  #revealedArchCard > div > div:nth-child(2) {
-    width: 76% !important;
-    max-width: 300px !important;
-  }
-
-  #revealedArchCard > div > div:nth-child(2) {
-    margin-top: 8% !important;
-  }
-}
-
-  
-    /* =========================================================
-       CANVA — BLOQUEO REAL DEL TEXTO DEL ARCO
-       El texto NO debe animarse ni desplazarse separado del marco.
-       El arco completo puede entrar con su propia animación, pero
-       esta capa interna permanece en coordenadas fijas del arco.
-       ========================================================= */
-    #revealedArchCard > div {
-      animation: none !important;
-      transform: none !important;
-      transition: none !important;
-      opacity: 1 !important;
-    }
-
-    #revealedArchCard .arch-top-text,
-    #revealedArchCard .arch-top-text *,
-    #revealedArchCard > div > div:nth-child(2),
-    #revealedArchCard > div > div:nth-child(2) *,
-    #revealedArchCard > div > div:nth-child(3),
-    #revealedArchCard > div > p {
-      transform: none !important;
-      transition: none !important;
-    }
-
-    #revealedArchCard .letter-reveal {
-      animation: none !important;
-      transform: none !important;
-      opacity: 1 !important;
-      filter: none !important;
-    }
-
-    @media (max-width: 768px) {
-      #revealedArchCard > div,
-      #revealedArchCard .arch-top-text,
-      #revealedArchCard > div > div:nth-child(2) {
-        transform: none !important;
-      }
-    }
-</style>
+    /* IMPORTANTE: no touchstart/touchmove/preventDefault. */
+  </style>
 <script src="/_aistudio-iframe.js?v=6634132a"></script></head>
 <body>
 
@@ -2083,44 +1105,43 @@
             style="width: 100%; height: 100%; object-fit: contain; display: block; pointer-events: none; transform: none; transform-origin: center center;"
           />
 
-          <!-- TEXTO DEL ARCO COMO UNA SOLA CAPA SVG: COORDENADAS FIJAS 1080x1460 -->
-          <svg class="arch-text-svg" viewBox="0 0 1080 1460" preserveAspectRatio="none"
-               aria-label="Invitación Gender Reveal"
-               style="position:absolute; inset:0; width:100%; height:100%; display:block; pointer-events:none; overflow:visible;">
-            <style>
-              .arch-sans { font-family: 'Cormorant Garamond', Georgia, serif; }
-              .arch-script { font-family: 'Alex Brush', 'Brush Script MT', cursive; }
-            
-/* ===== ARCO FINAL: una sola geometría, sin offsets acumulados ===== */
-#revealedArchCard { position:relative !important; aspect-ratio:1080 / 1460 !important; }
-#revealedArchCard > img { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; object-fit:fill !important; transform:none !important; }
-#revealedArchCard > div:not(.arch-bottom-content) { display:none !important; }
-#revealedArchCard .arch-text-svg { display:block !important; position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; transform:none !important; margin:0 !important; padding:0 !important; }
-#revealedArchCard .arch-bottom-content { position:absolute !important; left:50% !important; transform:translateX(-50%) !important; width:76% !important; }
-@media (max-width:768px){ #revealedArchCard .arch-bottom-content{width:76% !important;} }
-</style>
-            <!-- Todos los textos comparten exactamente X=540 -->
-            <text x="540" y="185" text-anchor="middle" class="arch-sans" font-size="27" font-weight="600" letter-spacing="6" fill="#1c3558">IS HE A</text>
-            <text x="540" y="245" text-anchor="middle" class="arch-script" font-size="92" fill="#1c3558">BOY</text>
-            <text x="540" y="300" text-anchor="middle" class="arch-sans" font-size="27" font-weight="600" letter-spacing="6" fill="#d66283">OR IS SHE A</text>
-            <text x="540" y="360" text-anchor="middle" class="arch-script" font-size="92" fill="#d66283">GIRL</text>
+          <!-- TEXTO DE LA INVITACIÓN INTEGRADO DENTRO DEL ARCO BLANCO (MÁS ANCHO, AMPLIO Y CÓMODO: 1080x1460) -->
+          <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: 6% 14% 14% 14%; pointer-events: auto;">
+          
+            <div class="arch-top-text" style="margin-top: 24px; margin-bottom: 6px; transform: translateY(45px);">
+              <h3 class="font-serif" style="text-transform: uppercase; letter-spacing: 2.5px; color: #1c3558; font-size: 11px; font-weight: 600; margin: 0;">
+                IS HE A
+              </h3>
+              <h1 class="font-script" style="font-size: 38px; color: #1c3558; line-height: 1; margin: 2px 0;">
+                BOY
+              </h1>
 
-            <text x="540" y="490" text-anchor="middle" class="arch-sans" font-size="28" fill="#666">Please join us for a</text>
-            <text x="540" y="555" text-anchor="middle" class="arch-script" font-size="82" fill="#222">Gender Reveal</text>
-            <text x="540" y="600" text-anchor="middle" class="arch-sans" font-size="25" fill="#777">honoring our Parents-to-be</text>
-            <text x="540" y="660" text-anchor="middle" class="arch-script" font-size="76" fill="#1c3558">Xol &amp; Lenin</text>
-          </svg>
+              <h3 class="font-serif" style="text-transform: uppercase; letter-spacing: 2.5px; color: #d66283; font-size: 11px; font-weight: 600; margin-top: 5px;">
+                OR IS SHE A
+              </h3>
+              <h1 class="font-script" style="font-size: 38px; color: #d66283; line-height: 1; margin: 2px 0;">
+                GIRL
+              </h1>
+            </div>
 
-          <!-- Bloque de Fecha -->
-          <div class="arch-bottom-content" style="position:absolute; left:50%; top:850px; transform:translateX(-50%); width:76%; text-align:center; pointer-events:auto;">
+            <div style="margin-top: 50px; margin-bottom: 10px; width: 100%; max-width: 380px;">
+              <p class="font-serif" style="color: #666; font-size: 13px; margin: 0;">Please join us for a</p>
+              <p class="font-script" style="font-size: 34px; color: #222; line-height: 1.1; margin: 2px 0;">Gender Reveal</p>
+              <p class="font-serif" style="color: #777; font-size: 12px; margin: 0;">honoring our Parents-to-be</p>
+              <p class="font-script" style="font-size: 32px; color: #1c3558; line-height: 1.1; margin: 2px 0;">Xol &amp; Lenin</p>
+            </div>
+
+            <!-- Bloque de Fecha -->
             <div class="date-block font-serif" style="border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; padding: 8px 2px; margin: 12px auto; width: 100%; max-width: 220px; display: flex; justify-content: space-between; align-items: center;">
               <span style="text-transform: uppercase; font-size: 12px; letter-spacing: 1px; color: #555;">Saturday</span>
               <span style="font-size: 30px; font-weight: bold; color: #1c3558; padding: 0 6px;">17</span>
               <span style="text-transform: uppercase; font-size: 12px; letter-spacing: 1px; color: #555;">October</span>
             </div>
+
             <p style="font-size: 12px; color: #555; margin-top: 6px; margin-bottom: 4px;">at 12:00 PM </p>
             <p style="font-size: 13.5px; font-weight: 600; color: #333; margin: 2px 0;">23332 El Perro St</p>
-            <p style="font-size: 11.5px; color: #777; max-width: 320px; margin: 0 auto;">Lake Forest CA 92630</p>
+            <p style="font-size: 11.5px; color: #777; max-width: 320px; margin: 0;">Lake Forest CA 92630</p>
+
           </div>
         </div>
       </div>
@@ -2196,6 +1217,9 @@
         </div>
       </a>
 
+      <!-- ESPACIO REAL DE SEGURIDAD PARA SAFARI/iPHONE -->
+      <div class="safari-final-spacer" aria-hidden="true"></div>
+
     </div>
   </div>
 
@@ -2241,12 +1265,39 @@
       }
     }
 
-    // Texto del arco: se mantiene como texto normal para evitar que Canva
-    // desplace letras individualmente al cambiar el ancho de la composición.
-    function animateArchWords() { /* El texto del arco ahora vive en un SVG fijo. */ }
+    // Animación del texto del arco: aparece LETRA POR LETRA
+    function animateArchWords() {
+      const targets = Array.from(
+        document.querySelectorAll('#revealedArchCard .font-script, #revealedArchCard .font-serif')
+      ).filter(el => !el.closest('.date-block'));
+
+      targets.forEach((el, elementIndex) => {
+        const originalText = el.dataset.originalText || el.textContent;
+        if (!originalText.trim()) return;
+
+        el.dataset.originalText = originalText;
+        el.innerHTML = '';
+
+        let charIndex = 0;
+        Array.from(originalText).forEach(char => {
+          if (/\s/.test(char)) {
+            el.appendChild(document.createTextNode(char));
+            return;
+          }
+
+          const span = document.createElement('span');
+          span.className = 'letter-reveal';
+          span.textContent = char;
+          span.style.animationDelay = `${elementIndex * 180 + charIndex * 55}ms`;
+          el.appendChild(span);
+          charIndex++;
+        });
+      });
+    }
 
     function animateInvitationElements() {
       const elements = [
+        document.querySelector('#revealedArchCard > div'),
         document.querySelector('[onclick="voteTeam(\'boy\')"]'),
         document.querySelector('[onclick="voteTeam(\'girl\')"]'),
         document.querySelector('.card-white'),
@@ -2281,7 +1332,7 @@
       setTimeout(() => {
         document.getElementById('envelopeView').style.display = 'none';
         document.getElementById('revealedView').style.display = 'block';
-        window.scrollTo(0, 0);
+        // scroll control removed: Google Sites parent page must keep its own scroll position
 
         const balloons = document.getElementById('revealedBalloons');
         const sonogram = document.getElementById('revealedSonogram');
@@ -2332,7 +1383,7 @@
         archCard.className = '';
       }
 
-      window.scrollTo(0, 0);
+      // scroll control removed: Google Sites parent page must keep its own scroll position
     }
 
     // 5. Votaciones
