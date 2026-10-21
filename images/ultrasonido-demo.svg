@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 246" role="img" aria-labelledby="title desc">
+  <title id="title">Ecografía ficticia para demostración</title>
+  <desc id="desc">Ilustración decorativa en tonos grises, no es una ecografía real.</desc>
+  <defs>
+    <radialGradient id="scan" cx="48%" cy="45%" r="78%">
+      <stop offset="0" stop-color="#38404b"/>
+      <stop offset=".58" stop-color="#171d26"/>
+      <stop offset="1" stop-color="#05080f"/>
+    </radialGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f8f8" stop-opacity=".95"/>
+      <stop offset=".5" stop-color="#bfc6ce" stop-opacity=".88"/>
+      <stop offset="1" stop-color="#737d89" stop-opacity=".7"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.5"/></filter>
+    <clipPath id="frame"><rect width="368" height="246" rx="5"/></clipPath>
+    <pattern id="grain" width="17" height="17" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="4" r=".8" fill="#fff" opacity=".12"/>
+      <circle cx="12" cy="11" r=".65" fill="#fff" opacity=".1"/>
+      <path d="M1 15l4-1M9 3l3 1" stroke="#dbe2eb" stroke-width=".5" opacity=".12"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="368" height="246" fill="url(#scan)"/>
+    <path d="M-20 60 Q75 8 160 54 T390 45 M-15 88 Q90 36 178 83 T390 75 M-10 118 Q90 67 184 112 T390 108" fill="none" stroke="#9aa5b2" stroke-width="2" opacity=".12"/>
+    <ellipse cx="190" cy="126" rx="112" ry="83" fill="#9aa5b2" opacity=".12" filter="url(#soft)"/>
+    <path d="M125 147 C105 118 121 80 151 69 C183 56 217 76 226 102 C234 124 221 144 205 154 C188 166 184 185 161 187 C142 189 127 172 125 147Z" fill="url(#skin)" opacity=".86" filter="url(#soft)"/>
+    <path d="M142 111 C151 91 172 87 187 99 C200 109 200 127 188 137 C180 144 165 144 159 154 C153 166 163 177 177 178 C199 180 215 161 222 145 C234 119 221 91 199 79" fill="none" stroke="#f3f5f7" stroke-width="7" stroke-linecap="round" opacity=".74" filter="url(#soft)"/>
+    <ellipse cx="151" cy="112" rx="19" ry="24" fill="#dbe0e5" opacity=".8" filter="url(#soft)"/>
+    <path d="M150 128 Q166 139 176 129 Q182 122 189 127" fill="none" stroke="#f5f7fa" stroke-width="3" opacity=".85"/>
+    <path d="M185 145 C201 145 216 155 218 168 C220 179 206 190 193 183 C183 178 176 165 185 145Z" fill="#aab3be" opacity=".8" filter="url(#soft)"/>
+    <path d="M99 164 Q149 202 220 187 T283 156" fill="none" stroke="#d6dde5" stroke-width="2" opacity=".45"/>
+    <rect width="368" height="246" fill="url(#grain)"/>
+    <g font-family="monospace" fill="#e8edf2" opacity=".88">
+      <text x="12" y="19" font-size="9" letter-spacing=".5">ITZA DEMO</text>
+      <text x="356" y="19" font-size="8" text-anchor="end">IMAGEN FICTICIA</text>
+      <text x="12" y="232" font-size="8">ILUSTRACIÓN · NO MÉDICA</text>
+      <text x="356" y="232" font-size="8" text-anchor="end">DEMO</text>
+    </g>
+    <path d="M12 27H356M12 219H356" stroke="#d9e1e9" stroke-opacity=".3"/>
+  </g>
+</svg>
